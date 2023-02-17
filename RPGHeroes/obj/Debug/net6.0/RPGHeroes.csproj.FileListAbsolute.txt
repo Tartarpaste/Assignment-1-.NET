@@ -1,0 +1,15 @@
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\bin\Debug\net6.0\RPGHeroes.exe
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\bin\Debug\net6.0\RPGHeroes.deps.json
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\bin\Debug\net6.0\RPGHeroes.runtimeconfig.json
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\bin\Debug\net6.0\RPGHeroes.dll
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\bin\Debug\net6.0\RPGHeroes.pdb
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.csproj.AssemblyReference.cache
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.AssemblyInfoInputs.cache
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.AssemblyInfo.cs
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.csproj.CoreCompileInputs.cache
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.dll
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\refint\RPGHeroes.dll
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.pdb
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\RPGHeroes.genruntimeconfig.cache
+C:\Users\TVetle\Documents\repos\.NET-assignment-1\Assignment-1-.NET\RPGHeroes\obj\Debug\net6.0\ref\RPGHeroes.dll
