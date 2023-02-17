@@ -104,6 +104,19 @@ namespace RPGHeroes.Hero
             }
         }
 
+        public void Display() 
+        {
+            StringBuilder heroDisplay = new StringBuilder();
 
+            heroDisplay.AppendLine("This heroes name is: " + Name);
+            heroDisplay.AppendLine(Name + "'s class is: " + typeof(Hero).Name);
+            heroDisplay.AppendLine(Name + "'s level is: " + Level);
+            heroDisplay.AppendLine(Name + "'s total strength is:" + TotalAttributes().Strength);
+            heroDisplay.AppendLine(Name + "'s total dexterity is:" + TotalAttributes().Dexterity);
+            heroDisplay.AppendLine(Name + "'s total intelligence is:" + TotalAttributes().Intelligence);
+            heroDisplay.AppendLine(Name + "'s damage is: " + Damage());
+
+            Console.WriteLine(heroDisplay);
+        }
     }
 }
