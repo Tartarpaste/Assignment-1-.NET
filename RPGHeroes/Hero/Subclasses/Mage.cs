@@ -1,4 +1,4 @@
-﻿using RPGHeroes.Item;
+﻿using RPGHeroes.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,6 @@ namespace RPGHeroes.Hero.Subclasses
             DamageAttribute = TotalAttributes().Intelligence;
 
             LevelAttributes = new(1, 1, 8);
-
         }
 
         public override void LevelUp()

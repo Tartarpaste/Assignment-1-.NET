@@ -1,4 +1,4 @@
-﻿using RPGHeroes.Item;
+﻿using RPGHeroes.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +18,6 @@ namespace RPGHeroes.Hero.Subclasses
             DamageAttribute = TotalAttributes().Dexterity;
 
             LevelAttributes = new(2, 6, 1);
-
-
         }
 
         public override void LevelUp()

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPGHeroes.Item
+namespace RPGHeroes.Items
 {
     public enum ArmorType
     {

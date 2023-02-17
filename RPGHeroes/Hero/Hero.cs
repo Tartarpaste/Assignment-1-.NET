@@ -1,5 +1,5 @@
-﻿using RPGHeroes.Item;
-using System;
+﻿using System;
+using RPGHeroes.Items;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,10 +11,10 @@ namespace RPGHeroes.Hero
     public abstract class Hero
     {
         public string Name { get; set; }
-        public int Level { get; set; } = 1;
+        public int Level { get; set; }
         public HeroAttribute LevelAttributes { get; set; }
 
-        public Dictionary<Slot, Item.Item> Eqipment;
+        public Dictionary<Slot, Item> Equipment;
         public List<WeaponType> ValidWeaponTypes { get; set; }
         public List<ArmorType> ValidArmorTypes { get; set; }
         public int DamageAttribute { get; set; }  
@@ -24,17 +24,17 @@ namespace RPGHeroes.Hero
             Name = name;
             Level = 1;
 
-            Eqipment.Add(Slot.Weapon, null);
-            Eqipment.Add(Slot.Head, null);
-            Eqipment.Add(Slot.Body, null);
-            Eqipment.Add(Slot.Legs, null);
+            Equipment.Add(Slot.Weapon, null);
+            Equipment.Add(Slot.Head, null);
+            Equipment.Add(Slot.Body, null);
+            Equipment.Add(Slot.Legs, null);
 
 
         }
 
         public abstract void LevelUp();
 
-        public void Equip(Item.Item item)
+        public void Equip(Item item)
         {
             if (item is Weapon)
             {
@@ -62,8 +62,8 @@ namespace RPGHeroes.Hero
                 }
             }
 
-            Eqipment.Remove(item.ItemSlot);
-            Eqipment.Add(item.ItemSlot, item);
+            Equipment.Remove(item.ItemSlot);
+            Equipment.Add(item.ItemSlot, item);
         }
 
         public HeroAttribute TotalAttributes()
@@ -72,7 +72,7 @@ namespace RPGHeroes.Hero
             int dexterity = 0;
             int Intelligence = 0;
 
-            foreach(Item.Item item in Eqipment.Values)
+            foreach(Item item in Equipment.Values)
             {
                 if (item is Armor) 
                 {
@@ -90,10 +90,20 @@ namespace RPGHeroes.Hero
             return TotalAttributes;
         }
 
-        public void Damage()
+        public int Damage()
         {
-
+            int HeroDamage = 1;
+            if (Equipment.ContainsKey(Slot.Weapon))
+            {
+                Weapon weapon = (Weapon)Equipment[Slot.Weapon];
+                HeroDamage = weapon.WeaponDamage * (1 + DamageAttribute / 100);
+                return HeroDamage;
+            } else
+            {
+                return HeroDamage;
+            }
         }
+
 
     }
 }

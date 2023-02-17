@@ -1,4 +1,4 @@
-﻿using RPGHeroes.Item;
+﻿using RPGHeroes.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +15,9 @@ namespace RPGHeroes.Hero.Subclasses
             ValidWeaponTypes.AddRange(new[] { WeaponType.Bow });
             ValidArmorTypes.AddRange(new[] { ArmorType.Leather, ArmorType.Mail });
 
+            DamageAttribute = TotalAttributes().Dexterity;
 
             LevelAttributes = new(1, 7, 1);
-
-
         }
 
         public override void LevelUp()
