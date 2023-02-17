@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGHeroes.Exceptions
 {
-    internal class InvalidArmorException : Exception
+     public class InvalidArmorException : Exception
     {
         public InvalidArmorException() { }
 

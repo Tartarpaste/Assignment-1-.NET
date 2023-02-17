@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RPGHeroes.Exceptions
 {
-    internal class InvalidLevelException : Exception
+    public class InvalidLevelException : Exception
     {
         public InvalidLevelException() { }
         public InvalidLevelException(string message) : base(message) { }
