@@ -12,12 +12,13 @@ namespace RPGHeroes.Hero.Subclasses
 
         public Ranger(string name) : base(name)
         {
+            LevelAttributes = new(1, 7, 1);
             ValidWeaponTypes.AddRange(new[] { WeaponType.Bow });
             ValidArmorTypes.AddRange(new[] { ArmorType.Leather, ArmorType.Mail });
 
             DamageAttribute = TotalAttributes().Dexterity;
 
-            LevelAttributes = new(1, 7, 1);
+
         }
 
         public override void LevelUp()

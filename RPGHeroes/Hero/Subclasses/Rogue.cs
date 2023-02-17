@@ -12,12 +12,13 @@ namespace RPGHeroes.Hero.Subclasses
 
         public Rogue(string name) : base(name)
         {
+            LevelAttributes = new(2, 6, 1);
             ValidWeaponTypes.AddRange(new[] { WeaponType.Dagger, WeaponType.Sword });
             ValidArmorTypes.AddRange(new[] { ArmorType.Leather, ArmorType.Mail });
 
             DamageAttribute = TotalAttributes().Dexterity;
 
-            LevelAttributes = new(2, 6, 1);
+        
         }
 
         public override void LevelUp()

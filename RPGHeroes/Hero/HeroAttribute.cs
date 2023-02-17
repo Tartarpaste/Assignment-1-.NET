@@ -8,11 +8,11 @@ namespace RPGHeroes.Hero
 {
     public class HeroAttribute
     {
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Intelligence { get; set; }
+        public double Strength { get; set; }
+        public double Dexterity { get; set; }
+        public double Intelligence { get; set; }
 
-        public HeroAttribute(int strength, int dexterity, int intelligence)
+        public HeroAttribute(double strength, double dexterity, double intelligence)
         {
             Strength = strength;
             Dexterity = dexterity;

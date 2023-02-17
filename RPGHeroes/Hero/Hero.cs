@@ -11,18 +11,19 @@ namespace RPGHeroes.Hero
     public abstract class Hero
     {
         public string Name { get; set; }
-        public int Level { get; set; }
-        public HeroAttribute LevelAttributes { get; set; }
+        public int Level { get; set; } = 1;
+        public HeroAttribute LevelAttributes { get; set; } = new HeroAttribute(1, 1, 1);
 
-        public Dictionary<Slot, Item> Equipment;
-        public List<WeaponType> ValidWeaponTypes { get; set; }
-        public List<ArmorType> ValidArmorTypes { get; set; }
-        public int DamageAttribute { get; set; }  
+        public Dictionary<Slot, Item?> Equipment = new Dictionary<Slot, Item?>();
+        public List<WeaponType> ValidWeaponTypes { get; set; } = new List<WeaponType>();
+        public List<ArmorType> ValidArmorTypes { get; set; } = new List<ArmorType>();
+        public double DamageAttribute { get; set; } = 0;
 
         public Hero(string name)
         {
             Name = name;
             Level = 1;
+
 
             Equipment.Add(Slot.Weapon, null);
             Equipment.Add(Slot.Head, null);
@@ -43,7 +44,7 @@ namespace RPGHeroes.Hero
                 {
                     throw new Exceptions.InvalidWeaponException();
                 }
-                if (weapon.RequiredLevel >= Level)
+                if (weapon.RequiredLevel > Level)
                 {
                     throw new Exceptions.InvalidLevelException();
                 }
@@ -56,7 +57,7 @@ namespace RPGHeroes.Hero
                 {
                     throw new Exceptions.InvalidArmorException();
                 }
-                if (armor.RequiredLevel >= Level)
+                if (armor.RequiredLevel > Level)
                 {
                     throw new Exceptions.InvalidLevelException();
                 }
@@ -68,9 +69,9 @@ namespace RPGHeroes.Hero
 
         public HeroAttribute TotalAttributes()
         {
-            int strength = 0;
-            int dexterity = 0;
-            int Intelligence = 0;
+            double strength = 0;
+            double dexterity = 0;
+            double Intelligence = 0;
 
             foreach(Item item in Equipment.Values)
             {
@@ -86,20 +87,22 @@ namespace RPGHeroes.Hero
             dexterity += LevelAttributes.Dexterity;
             Intelligence += LevelAttributes.Intelligence;
             HeroAttribute TotalAttributes = new(strength, dexterity, Intelligence);
-
+            
             return TotalAttributes;
         }
 
-        public int Damage()
+        public double Damage()
         {
-            int HeroDamage = 1;
-            if (Equipment.ContainsKey(Slot.Weapon))
+
+            double HeroDamage = 1;
+            if (Equipment[Slot.Weapon] != null)
             {
                 Weapon weapon = (Weapon)Equipment[Slot.Weapon];
                 HeroDamage = weapon.WeaponDamage * (1 + DamageAttribute / 100);
                 return HeroDamage;
             } else
             {
+                HeroDamage = 1 * (1 + DamageAttribute / 100);
                 return HeroDamage;
             }
         }
@@ -109,7 +112,7 @@ namespace RPGHeroes.Hero
             StringBuilder heroDisplay = new StringBuilder();
 
             heroDisplay.AppendLine("This heroes name is: " + Name);
-            heroDisplay.AppendLine(Name + "'s class is: " + typeof(Hero).Name);
+            heroDisplay.AppendLine(Name + "'s class is: " + GetType().Name);
             heroDisplay.AppendLine(Name + "'s level is: " + Level);
             heroDisplay.AppendLine(Name + "'s total strength is:" + TotalAttributes().Strength);
             heroDisplay.AppendLine(Name + "'s total dexterity is:" + TotalAttributes().Dexterity);

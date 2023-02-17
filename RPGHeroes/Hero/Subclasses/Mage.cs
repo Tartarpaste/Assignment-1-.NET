@@ -12,12 +12,11 @@ namespace RPGHeroes.Hero.Subclasses
 
         public Mage(string name) : base(name)
         {
+            LevelAttributes = new(1, 1, 8);
             ValidWeaponTypes.AddRange(new[] { WeaponType.Wand, WeaponType.Staff });
             ValidArmorTypes.AddRange(new[] { ArmorType.Cloth });
 
             DamageAttribute = TotalAttributes().Intelligence;
-
-            LevelAttributes = new(1, 1, 8);
         }
 
         public override void LevelUp()

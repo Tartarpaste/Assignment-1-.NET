@@ -12,12 +12,13 @@ namespace RPGHeroes.Hero.Subclasses
 
         public Warrior(string name) : base(name)
         {
+            LevelAttributes = new(5, 2, 1);
             ValidWeaponTypes.AddRange(new[] { WeaponType.Axe, WeaponType.Hammer, WeaponType.Sword });
             ValidArmorTypes.AddRange(new[] { ArmorType.Mail, ArmorType.Plate });
 
             DamageAttribute = TotalAttributes().Strength;
 
-            LevelAttributes = new(5, 2, 1);
+            
         }
 
         public override void LevelUp()

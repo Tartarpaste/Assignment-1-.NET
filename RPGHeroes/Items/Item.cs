@@ -15,8 +15,6 @@ namespace RPGHeroes.Items
     }
     public class Item
     {
-
-
         public string Name { get; set; }
         public int RequiredLevel { get; set; }
         public Slot ItemSlot { get; set; }
