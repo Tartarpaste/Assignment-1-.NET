@@ -5,6 +5,11 @@ namespace RPGHeroes.Hero.Subclasses
     public class Mage : Hero
     {
 
+        /// <summary>
+        /// Constructor for the class. It sets the subclasses attributes as well as the weapons and armor they can equip.
+        /// Their damaging attribute is also set.
+        /// </summary>
+        /// <param name="name"></param>
         public Mage(string name) : base(name)
         {
             LevelAttributes = new(1, 1, 8);
@@ -14,6 +19,9 @@ namespace RPGHeroes.Hero.Subclasses
             DamageAttribute = TotalAttributes().Intelligence;
         }
 
+        /// <summary>
+        /// Levels up the hero class with their correct stat increases
+        /// </summary>
         public override void LevelUp()
         {
             Level += 1;
