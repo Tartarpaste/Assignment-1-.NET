@@ -1,11 +1,6 @@
 ﻿using RPGHeroes.Exceptions;
 using RPGHeroes.Hero.Subclasses;
 using RPGHeroes.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RPGHeroesTests
 {

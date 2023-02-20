@@ -1,10 +1,5 @@
-﻿using System;
-using RPGHeroes.Items;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using RPGHeroes.Items;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RPGHeroes.Hero
 {
@@ -18,6 +13,7 @@ namespace RPGHeroes.Hero
         public List<WeaponType> ValidWeaponTypes { get; set; } = new List<WeaponType>();
         public List<ArmorType> ValidArmorTypes { get; set; } = new List<ArmorType>();
         public double DamageAttribute { get; set; } = 0;
+
 
         public Hero(string name)
         {

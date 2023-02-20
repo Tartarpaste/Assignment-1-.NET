@@ -1,6 +1,5 @@
 ﻿using RPGHeroes.Hero.Subclasses;
 using RPGHeroes.Items;
-using System;
 
 namespace RPGHeroes
 {
