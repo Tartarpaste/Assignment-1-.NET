@@ -1,4 +1,5 @@
-﻿using RPGHeroes.Items;
+﻿using RPGHeroes.Hero.Subclasses;
+using RPGHeroes.Items;
 using System.Text;
 
 namespace RPGHeroes.Hero
@@ -14,7 +15,10 @@ namespace RPGHeroes.Hero
         public List<ArmorType> ValidArmorTypes { get; set; } = new List<ArmorType>();
         public double DamageAttribute { get; set; } = 0;
 
-
+        /// <summary>
+        /// Construcor for the Hero class.
+        /// </summary>
+        /// <param name="name"></param>
         public Hero(string name)
         {
             Name = name;
@@ -29,8 +33,20 @@ namespace RPGHeroes.Hero
 
         }
 
+        /// <summary>
+        /// The base levelup method that is overridden by the child classes.
+        /// </summary>
         public abstract void LevelUp();
 
+
+        /// <summary>
+        /// Lets a hero equip items. The item passed into the function is checked for exceptions and then added
+        /// to the slot it is designated for. If there is already an item in the slot, it is deleted.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="Exceptions.InvalidWeaponException"></exception>
+        /// <exception cref="Exceptions.InvalidLevelException"></exception>
+        /// <exception cref="Exceptions.InvalidArmorException"></exception>
         public void Equip(Item item)
         {
             if (item is Weapon)
@@ -63,6 +79,11 @@ namespace RPGHeroes.Hero
             Equipment.Add(item.ItemSlot, item);
         }
 
+        /// <summary>
+        /// Calculates the combined stats of a heroes attributes. 
+        /// If the hero has any items equiped, their stats will be added as well
+        /// </summary>
+        /// <returns></returns>
         public HeroAttribute TotalAttributes()
         {
             double strength = 0;
@@ -87,10 +108,35 @@ namespace RPGHeroes.Hero
             return TotalAttributes;
         }
 
+        /// <summary>
+        /// Calculates the damage a hero deals based on their damageing attribute.
+        /// A weapons damage modifier is also added if the hero has one equiped.
+        /// </summary>
+        /// <returns></returns>
         public double Damage()
         {
 
             double HeroDamage = 1;
+
+            switch (this)
+            {
+                case Mage:
+                    DamageAttribute = TotalAttributes().Intelligence;
+                    break;
+
+                case Ranger:
+                    DamageAttribute = TotalAttributes().Dexterity;
+                    break;
+
+                case Rogue:
+                    DamageAttribute = TotalAttributes().Dexterity;
+                    break;
+
+                case Warrior:
+                    DamageAttribute = TotalAttributes().Strength;
+                    break;
+            }
+
             if (Equipment[Slot.Weapon] != null)
             {
                 Weapon weapon = (Weapon)Equipment[Slot.Weapon];
@@ -103,7 +149,10 @@ namespace RPGHeroes.Hero
             }
         }
 
-        public void Display() 
+        /// <summary>
+        /// Uses a string builder to print all of the heroes information
+        /// </summary>
+        public string Display() 
         {
             StringBuilder heroDisplay = new StringBuilder();
 
@@ -116,6 +165,7 @@ namespace RPGHeroes.Hero
             heroDisplay.AppendLine(Name + "'s damage is: " + Damage());
 
             Console.WriteLine(heroDisplay);
+            return heroDisplay.ToString();
         }
     }
 }
